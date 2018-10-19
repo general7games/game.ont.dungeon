@@ -21,5 +21,13 @@ export class MapComponent implements OnInit {
 		canvas.width = mapCanvasContainer.clientWidth
 		canvas.height = mapCanvasContainer.clientHeight
 		mapCanvasContainer.appendChild(canvas)
+
+		canvas.addEventListener('mousemove', (ev: MouseEvent) => {
+			return this.onMouseMove(ev)
+		})
+	}
+
+	onMouseMove(ev: MouseEvent) {
+		console.log(ev.offsetX, ev.offsetY)
 	}
 }
