@@ -2,6 +2,8 @@
 	id="mapCanvasContainer"
 	style="height: 600px; background-color: lightgray; position: relative;"
 >
-	<canvas id="points" style="z-index: 1; position: absolute; left: 0; top: 0"></canvas>
-	<canvas id="bubble" style="z-index: 2; position: absolute; left: 0; top: 0"></canvas>
+	<canvas id="points"  style="z-index: 1; position: absolute; left: 0; top: 0"></canvas>
+	<canvas id="bubble"  style="z-index: 2; position: absolute; left: 0; top: 0"></canvas>
+
+	<app-map-color-picker [hidden]="mode != 1" style="z-index: 4; position: absolute; right: 0; top: 0"></app-map-color-picker>
 </div>

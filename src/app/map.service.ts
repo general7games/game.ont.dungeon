@@ -13,6 +13,7 @@ export interface Point {
 
 export interface AllPoints {
 	maxLine: number
+	priceMultiplier: number
 	points: Point[]
 }
 

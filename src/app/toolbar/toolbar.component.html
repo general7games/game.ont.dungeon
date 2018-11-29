@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Dungeon - An Ontology Game</span>
+        <span class="toolbar-spacer"></span>
+
+		<mat-button-toggle-group #group="matButtonToggleGroup" 
+				value="0" id="mode-toggle"
+				(change)="onModeChange(group.value)">
+            <mat-button-toggle value="0"> <!-- View -->
+                <mat-icon>open_with</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="1"> <!-- Edit -->
+                <mat-icon>edit</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="2"> <!-- Erase -->
+                <mat-icon>delete</mat-icon>
+            </mat-button-toggle>
+		</mat-button-toggle-group>
+
+		<mat-icon class="toolbar-icon">favorite</mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar>

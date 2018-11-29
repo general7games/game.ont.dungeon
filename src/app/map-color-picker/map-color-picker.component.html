@@ -1,0 +1,9 @@
+<div style="background: white;">
+	<mat-button-toggle-group #group="matButtonToggleGroup" 
+			value="0" vertical="true" 
+			(change)="onColorChange(group.value)">
+		<mat-button-toggle *ngFor="let color of colors; let i = index" value="{{ i }}">
+			<span class="map-color" style.background="{{ color }}"></span>
+		</mat-button-toggle>
+	</mat-button-toggle-group>
+</div>

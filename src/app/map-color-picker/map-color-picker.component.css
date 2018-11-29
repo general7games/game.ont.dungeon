@@ -1,0 +1,11 @@
+.map-color-picker-card {
+    background-color: white;
+}
+
+.map-color {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+}
