@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import * as utils from '../utils'
 import { MapColorPickerComponent } from '../map-color-picker/map-color-picker.component';
 import { AppComponent } from '../app.component';
+import { MatSnackBar } from '@angular/material';
 
 enum Mode {
 	View = 0,
@@ -72,6 +73,7 @@ export class MapComponent implements OnInit {
 	constructor(
 		private app: AppComponent,
 		private mapService: MapService,
+		private snakeBar: MatSnackBar,
 		private logger: NGXLogger
 	) { }
 
@@ -80,6 +82,8 @@ export class MapComponent implements OnInit {
 	}
 
 	ngAfterViewInit() {
+		this.snakeBar.open('Loading, please wait...')
+
 		const mapCanvasContainer = document.getElementById('mapCanvasContainer')
 		const canvas = document.getElementById('points') as HTMLCanvasElement
 		this.context = canvas.getContext('2d')
@@ -126,6 +130,7 @@ export class MapComponent implements OnInit {
 						this.onMouseUp(ev)
 					}
 				})
+				this.snakeBar.dismiss()
 			} else {
 				alert('Error to fill data.')
 			}
