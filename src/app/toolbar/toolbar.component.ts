@@ -38,6 +38,13 @@ export class ToolbarComponent implements OnInit {
 	}
 
 	async onBuyClick() {
+		if (!this.dapiService.isReady) {
+			this.snakeBar.open('Transaction service is not ready, please make sure Cyano Wallet is installed, see FAQ for more details.', undefined, {
+				duration: 5000
+			})
+			return
+		}
+
 		const editedPoints = this.app.map.getEditedPoints()
 		if (editedPoints.length == 0) {
 			this.snakeBar.open("You haven't select points yet.", undefined, {

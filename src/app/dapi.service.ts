@@ -8,6 +8,8 @@ import * as utils from './utils'
 })
 export class DapiService {
 
+	isReady = false
+
   	constructor(
 		private logger: NGXLogger
 	) { 
@@ -19,6 +21,7 @@ export class DapiService {
 		client.registerClient({});
 		const network = await client.api.network.getNetwork();
 		this.logger.debug('ONT network ' + network.type + ' - ' + network.address)
+		this.isReady = true
 	}
 
 	async buyPoints(xPoints: Array<number>, yPoints: Array<number>, colors: Array<number>, prices: Array<number>) {
@@ -45,7 +48,9 @@ export class DapiService {
 				}, {
 					type: 'Array',
 					value: this.intArrayToContractArray(prices)
-				}]
+				}],
+				gasPrice: 0, 
+				gasLimit: 20000000
 			})
 			this.logger.info('buyPoints invoke result ' + JSON.stringify(r))
 			if (r.result[0].length == 2 && parseInt(r.result[0][0]) == 0 && r.result[0][1] == '4f4b' /* OK */) {
