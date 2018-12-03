@@ -17,6 +17,13 @@ interface XY {
 	y: number
 }
 
+export interface EditedPoint {
+	x: number
+	y: number
+	color: number
+	price: number
+}
+
 const FLAG_MOUSE_MOVE  = 0x01
 const FLAG_MOUSE_WHEEL = 0x02
 const FLAG_MOUSE_DOWN  = 0x04
@@ -63,13 +70,13 @@ export class MapComponent implements OnInit {
 	color: string
 
 	constructor(
-		@Host()
 		private app: AppComponent,
 		private mapService: MapService,
 		private logger: NGXLogger
 	) { }
 
 	ngOnInit() {
+		this.app.map = this
 	}
 
 	ngAfterViewInit() {
@@ -281,6 +288,10 @@ export class MapComponent implements OnInit {
 		this.totalOffset.x += offsetX
 		this.totalOffset.y += offsetY
 		this.redraw()
+	}
+
+	getEditedPoints(): Array<EditedPoint> {
+		return Object.values(this.editedPoints)
 	}
 
 	calcBuyPrice(price) {

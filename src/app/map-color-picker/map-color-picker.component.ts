@@ -5,7 +5,8 @@ import { Observable, Subject } from 'rxjs';
 @Component({
 	selector: 'app-map-color-picker',
 	templateUrl: './map-color-picker.component.html',
-	styleUrls: ['./map-color-picker.component.css']
+	styleUrls: ['./map-color-picker.component.css'],
+	providers: [NGXLogger]
 })
 export class MapColorPickerComponent implements OnInit {
 

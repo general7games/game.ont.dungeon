@@ -6,17 +6,23 @@
 		<mat-button-toggle-group #group="matButtonToggleGroup" 
 				value="0" id="mode-toggle"
 				(change)="onModeChange(group.value)">
-            <mat-button-toggle value="0"> <!-- View -->
+            <mat-button-toggle matTooltip="View mode to drag canvas" value="0"> <!-- View -->
                 <mat-icon>open_with</mat-icon>
             </mat-button-toggle>
-            <mat-button-toggle value="1"> <!-- Edit -->
+            <mat-button-toggle matTooltip="Edit mode to select points" value="1"> <!-- Edit -->
                 <mat-icon>edit</mat-icon>
             </mat-button-toggle>
-            <mat-button-toggle value="2"> <!-- Erase -->
+            <mat-button-toggle matTooltip="Erase mode to unselect points" value="2"> <!-- Erase -->
                 <mat-icon>delete</mat-icon>
             </mat-button-toggle>
 		</mat-button-toggle-group>
 
-		<mat-icon class="toolbar-icon">favorite</mat-icon>
+		<button mat-icon-button 
+				matTooltip="Buy selected points!" 
+				id="buy" 
+				(click)="onBuyClick()"
+		>
+			<mat-icon>shopping_cart</mat-icon>
+		</button>
     </mat-toolbar-row>
 </mat-toolbar>

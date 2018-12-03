@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { LoggerModule, NgxLoggerLevel, NGXLogger } from 'ngx-logger'
 import axios from 'axios'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatCardModule, MatButtonToggleModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatButtonToggleModule, MatIconModule, MatButtonModule, MatTooltipModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
@@ -26,6 +26,9 @@ import { MapColorPickerComponent } from './map-color-picker/map-color-picker.com
 		MatButtonToggleModule,
 		MatIconModule,
 		MatButtonModule,
+		MatTooltipModule,
+		MatSnackBarModule,
+		MatDialogModule,
 		LoggerModule.forRoot({
 			level: environment.logLevel.root.level,
 			serverLogLevel: environment.logLevel.root.serverLogLevel

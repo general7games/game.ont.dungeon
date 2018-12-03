@@ -10,6 +10,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 export class AppComponent {
 	title = 'Game';
 
-	@ViewChild(ToolbarComponent)
 	toolbar: ToolbarComponent
+	map: MapComponent
 }
