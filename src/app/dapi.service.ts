@@ -51,7 +51,7 @@ export class DapiService {
 				}],
 				gasPrice: 0, 
 				gasLimit: 20000000
-			})
+			}) as any
 			this.logger.info('buyPoints invoke result ' + JSON.stringify(r))
 			if (r.result[0].length == 2 && parseInt(r.result[0][0]) == 0 && r.result[0][1] == '4f4b' /* OK */) {
 				return true
